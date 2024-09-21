@@ -12,20 +12,19 @@ class _HomePageState extends State<HomePage> {
   bool OTurn = true;
   List<String> displayXO = ["", "", "", "", "", "", "", "", ""];
 
-  var myTextStyle = TextStyle(color: Colors.white, fontSize: 30);
+  var myTextStyle = const TextStyle(color: Colors.white, fontSize: 30);
   int OScore = 0;
   int XScore = 0;
   int filledBoxes = 0;
 
-  static var myNewFont = GoogleFonts.pressStart2p(
-      textStyle: TextStyle(color: Colors.black, letterSpacing: 3));
-  static var myNewFontWhite = GoogleFonts.pressStart2p(
-      textStyle: TextStyle(color: Colors.white, letterSpacing: 3));
+  static var myNewFontWhite = GoogleFonts.varelaRound(
+      textStyle: const TextStyle(color: Colors.white, letterSpacing: 3));
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900],
+      backgroundColor: (OTurn) ? Colors.blue[300] : Colors.red[300],
+      //  Colors.grey[900],
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -34,38 +33,58 @@ class _HomePageState extends State<HomePage> {
             Expanded(
                 child: Container(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
+                Container(
+                  height: 110,
+                  padding: const EdgeInsets.all(16.0),
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                          color: Colors.white,
+                          width: 1.5,
+                          strokeAlign: BorderSide.strokeAlignOutside)),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Player O", style: myNewFontWhite),
-                      SizedBox(
+                      Text("Player O",
+                          style: myNewFontWhite.copyWith(
+                              color: Colors.blue[800], fontSize: 24)),
+                      const SizedBox(
                         height: 10,
                       ),
-                      Text(OScore.toString(), style: myNewFontWhite.copyWith(fontSize: 20)),
+                      Text(OScore.toString(),
+                          style: myNewFontWhite.copyWith(
+                              fontSize: 24, color: Colors.blue[800])),
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
+                Container(
+                  height: 110,
+                  padding: const EdgeInsets.all(16.0),
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                          color: Colors.white,
+                          width: 1.5,
+                          strokeAlign: BorderSide.strokeAlignOutside)),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Player X", style: myNewFontWhite),
-                      SizedBox(
+                      Text("Player X",
+                          style: myNewFontWhite.copyWith(
+                              color: Colors.red[800], fontSize: 24)),
+                      const SizedBox(
                         height: 10,
                       ),
-                      Text(XScore.toString(), style: myNewFontWhite.copyWith(fontSize: 20)),
+                      Text(XScore.toString(),
+                          style: myNewFontWhite.copyWith(
+                              fontSize: 24, color: Colors.red[800])),
                     ],
                   ),
                 ),
               ],
             ))),
             Expanded(
-              flex: 3,
+              flex: 2,
               child: GridView.builder(
                   itemCount: 9,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -77,9 +96,10 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey)),
+                            border: Border.all(color: Colors.white)),
                         child: Center(
-                          child: Text(displayXO[index], style: myNewFontWhite
+                          child: Text(displayXO[index],
+                              style: myNewFontWhite.copyWith(fontSize: 50)
                               // TextStyle(color: Colors.white, fontSize: 40),
                               ),
                         ),
@@ -89,19 +109,20 @@ class _HomePageState extends State<HomePage> {
             ),
             Expanded(
                 child: Container(
+              padding: EdgeInsets.only(top: 45),
               child: Center(
                 child: Column(
                   children: [
                     Text(
                       "TIC TAC TOE",
-                      style: myNewFontWhite.copyWith(fontSize: 25),
+                      style: myNewFontWhite.copyWith(fontSize: 36),
                     ),
-                    SizedBox(
-                      height: 60,
+                    const SizedBox(
+                      height: 40,
                     ),
                     Text(
                       "@JUST.PC.ARTS",
-                      style: myNewFontWhite.copyWith(fontSize: 20),
+                      style: myNewFontWhite.copyWith(fontSize: 36),
                     )
                   ],
                 ),
@@ -185,7 +206,7 @@ class _HomePageState extends State<HomePage> {
                     _clearBoard();
                     Navigator.of(context).pop();
                   },
-                  child: Text("Play Again!"))
+                  child: const Text("Play Again!"))
             ],
           );
         });
@@ -202,14 +223,14 @@ class _HomePageState extends State<HomePage> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text("Draw"),
+            title: const Text("Draw"),
             actions: [
               TextButton(
                   onPressed: () {
                     _clearBoard();
                     Navigator.of(context).pop();
                   },
-                  child: Text("Play Again!"))
+                  child: const Text("Play Again!"))
             ],
           );
         });
