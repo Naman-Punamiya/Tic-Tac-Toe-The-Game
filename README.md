@@ -59,6 +59,7 @@ flutter config --enable-linux-desktop
 flutter run -d windows   # or macos / linux
 ```
 
+---
 
 🧠 Game Logic
 - Two players take turns placing X and O
@@ -71,6 +72,7 @@ flutter run -d windows   # or macos / linux
   - Draw message
 - Reset button clears the board
 
+---
 
 🛠️ Future Improvements
 - Single-player mode with AI
@@ -79,6 +81,7 @@ flutter run -d windows   # or macos / linux
 - Animations
 - Online multiplayer
 
+---
 
 🤝 Contribution
 1. Star the repo
@@ -87,13 +90,16 @@ flutter run -d windows   # or macos / linux
 4. Commit changes
 5. Push and open a Pull Request
 
+---
 
 📄 License
-
 MIT License
 
-👤 Author
+---
 
+👤 Author
 Naman Punamiya
+
+---
 
 Enjoy playing Tic-Tac-Toe! ❌⭕
