@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Expanded(
                 child: Container(
-              padding: EdgeInsets.only(top: 45),
+              padding: const EdgeInsets.only(top: 45),
               child: Center(
                 child: Column(
                   children: [
